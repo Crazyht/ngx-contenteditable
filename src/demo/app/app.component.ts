@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  public myvalue = 'test';
-  public myMultilinevalue = 'test';
+  public myValue = 'Test';
+  public myMultilinevalue = `Test
+  test
+  test`;
 }

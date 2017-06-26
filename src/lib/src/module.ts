@@ -7,7 +7,7 @@ import { ContentEditableDirective } from'./directive/contenteditable.directive';
 @NgModule({
   imports: [
       CommonModule,
-      FormsModule
+      FormsModule,
     ],
   declarations: [
       ContentEditableDirective

@@ -25,6 +25,9 @@
 
       // other libraries
       'rxjs': 'npm:rxjs',
+      // ngx-bootstrap
+      'moment': 'node_modules/moment',
+      'ngx-bootstrap':              'node_modules/ngx-bootstrap',
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -39,6 +42,9 @@
       rxjs: {
         defaultExtension: 'js'
       },
+      // ng2-bootstrap
+      'ngx-bootstrap':              { format: 'cjs', main: 'bundles/ngx-bootstrap.umd.js', defaultExtension: 'js' },
+      'moment':                     { main: 'moment.js', defaultExtension: 'js' },
       'ngx-contenteditable': {
         main: 'index.js',
         defaultExtension: 'js',

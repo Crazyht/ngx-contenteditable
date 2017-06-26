@@ -74,5 +74,8 @@
     "tslint": "^5.4.3",
     "typescript": "^2.3.4",
     "zone.js": "^0.8.12"
+  },
+  "dependencies": {
+    "ngx-bootstrap": "^1.7.1"
   }
 }
