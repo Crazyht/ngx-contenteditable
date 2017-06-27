@@ -1,5 +1,54 @@
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
+.singleSample,
+.tableContainer {
+  margin: 3em 5em 3em 5em;
+}
+
+h2 {
+  margin-top: 2em;
+}
+
+h4.titleH4{
+  margin: 2em 0 0.5em -1em;
+  color: #4FC3F7;
+}
+
+p.contentEditable,
+table{
+  margin: 0.8em 20% 0.8em 10%;
+}
+
+.contentEditable {
+  margin: 1.5em 0 1.5em 0;
+  padding: 1em;
+  border: 0.7px solid #B3E5FC;
+  border-radius: 2px;
+}
+
+table {
+  margin-top: 2em;
+  width: 70%;
+}
+td {
+  padding: 5px;
+}
+
+td.title{
+  padding-left: 15%;
+}
+
+.borderTop {
+  border-top: 2px solid #CFD8DC;
+}
+
+.borderRight {
+  margin: 3em 5em 0 0;
+  border-right: 2px solid #CFD8DC;
+}
+
+.tooltip-inner {
+  background-color: transparent;
+}
+
+.tooltip .tooltip-arrow {
+  border-bottom-color: #FFCDD2 !important;
 }

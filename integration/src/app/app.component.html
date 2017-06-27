@@ -1,3 +1,96 @@
 <div class="container">
-        
+        <h2>ngx-contenteditable</h2>
+        <div class="singleSample">
+                <h4 class="titleH4">First example :</h4>
+                
+                <p contenteditable
+                        class="contentEditable"
+                        [(ngModel)]="text"
+                        name="example1"
+                        required="true"
+                        minlength="2"
+                        maxlength="15"
+                        #example1="ngModel">
+                </p>
+                <div *ngIf="example1.errors && (example1.dirty || example1.touched)" class="alert alert-danger">
+                        <div [hidden]="!example1.errors.required">Example 1 is required</div>
+                        <div [hidden]="!example1.errors.minlength">Example 1 need at least 2 characters</div>
+                        <div [hidden]="!example1.errors.maxlength">Example 1 need maximum 15 characters</div>
+                </div>
+
+                <h4 class="titleH4">Multiline example :</h4>
+
+                <p contenteditable 
+                        class="contentEditable"
+                        [(ngModel)]="text2"
+                        name="example2"
+                        required="true"
+                        minlength="2"
+                        maxlength="30"
+                        multiline="true"
+                        #example2="ngModel">
+                </p>
+                <div *ngIf="example2.errors && (example2.dirty || example2.touched)" class="alert alert-danger">
+                        <div [hidden]="!example2.errors.required">Example 2 is required</div>
+                        <div [hidden]="!example2.errors.minlength">Example 2 need at least 2 characters</div>
+                        <div [hidden]="!example2.errors.maxlength">Example 2 need maximum 30 characters</div>
+                </div>
+        </div>
+        <div class="tableContainer">
+                <h4 class="titleH4">Example in a table:</h4>
+
+                <table>
+                        <tr>
+                                <td class="borderRight title">Single-line edition</td>
+                                <td class="title">Multi-line edition</td>
+                        </tr>
+                        <tr class="borderTop">
+                                <td contenteditable
+                                        class="borderRight"
+                                        [(ngModel)]="myValue"
+                                        name="test1"
+                                        required="true"
+                                        minlength="3"
+                                        maxlength="10"
+                                        #test1="ngModel"
+                                        [tooltip]="errorMessage"
+                                        [isOpen]="(test1.errors && (test1.dirty || test1.touched))"
+                                        triggers=""
+                                        placement="bottom"
+                                        container="body"
+                                ></td>
+
+                                <td contenteditable
+                                        [(ngModel)]="myMultilinevalue"
+                                        name="test2"
+                                        multiline="true"
+                                        required="true"
+                                        minlength="5"
+                                        maxlength="20"
+                                        #test2="ngModel"
+                                        [tooltip]="errorMessage2"
+                                        [isOpen]="(test2.errors && (test2.dirty || test2.touched))"
+                                        triggers=""
+                                        placement="bottom"
+                                        container="body">
+                                </td>
+                        </tr>
+                </table>
+                
+                <ng-template #errorMessage>
+                        <div class="alert alert-danger">
+                                <span [hidden]="!test1.errors.required">Simple value is required</span>
+                                <span [hidden]="!test1.errors.minlength">Simple value need at least 3 characters</span>
+                                <span [hidden]="!test1.errors.maxlength">Simple value need maximum of 10 characters</span>
+                        </div>
+                </ng-template>
+
+                <ng-template #errorMessage2>
+                        <div class="alert alert-danger">
+                                <span [hidden]="!test2.errors.required">Multiline value is required</span>
+                                <span [hidden]="!test2.errors.minlength">Multiline value need at least 5 characters</span>
+                                <span [hidden]="!test2.errors.maxlength">Multiline value need maximum of 20 characters</span>
+                        </div>
+                </ng-template>
+        </div>
 </div>

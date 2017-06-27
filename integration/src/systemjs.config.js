@@ -26,7 +26,8 @@
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
-      'ngx-contenteditable': 'npm:ngx-contenteditable/bundles/ngx-contenteditable.umd.js'
+      'ngx-contenteditable': 'npm:ngx-contenteditable/bundles/ngx-contenteditable.umd.js',
+      'ngx-bootstrap':              'node_modules/ngx-bootstrap',
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -40,7 +41,8 @@
       },
       rxjs: {
         defaultExtension: 'js'
-      }
+      },
+      'ngx-bootstrap':              { format: 'cjs', main: 'bundles/ngx-bootstrap.umd.js', defaultExtension: 'js' },
     }
   });
 })(this);

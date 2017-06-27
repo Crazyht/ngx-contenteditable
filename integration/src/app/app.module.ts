@@ -1,12 +1,13 @@
 import { NgModule }      from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxTreeSelectModule } from 'ngx-contenteditable';
+import { NgxContentEditableModule } from 'ngx-contenteditable';
+import { TooltipModule } from 'ngx-bootstrap';
 
 import { AppComponent }  from './app.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, NgxTreeSelectModule],
+  imports:      [ BrowserModule, FormsModule, NgxContentEditableModule, TooltipModule.forRoot()],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
 })
