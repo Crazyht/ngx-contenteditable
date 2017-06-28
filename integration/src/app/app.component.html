@@ -52,13 +52,8 @@
                                         required="true"
                                         minlength="3"
                                         maxlength="10"
-                                        #test1="ngModel"
-                                        [tooltip]="errorMessage"
-                                        [isOpen]="(test1.errors && (test1.dirty || test1.touched))"
-                                        triggers=""
-                                        placement="bottom"
-                                        container="body"
-                                ></td>
+                                        #test1="ngModel">
+                                </td>
 
                                 <td contenteditable
                                         [(ngModel)]="myMultilinevalue"
@@ -67,30 +62,20 @@
                                         required="true"
                                         minlength="5"
                                         maxlength="20"
-                                        #test2="ngModel"
-                                        [tooltip]="errorMessage2"
-                                        [isOpen]="(test2.errors && (test2.dirty || test2.touched))"
-                                        triggers=""
-                                        placement="bottom"
-                                        container="body">
+                                        #test2="ngModel">
                                 </td>
                         </tr>
                 </table>
-                
-                <ng-template #errorMessage>
-                        <div class="alert alert-danger">
-                                <span [hidden]="!test1.errors.required">Simple value is required</span>
-                                <span [hidden]="!test1.errors.minlength">Simple value need at least 3 characters</span>
-                                <span [hidden]="!test1.errors.maxlength">Simple value need maximum of 10 characters</span>
-                        </div>
-                </ng-template>
+                <div *ngIf="test1.errors && (test1.dirty || test1.touched)" class="alert alert-danger">
+                        <div [hidden]="!test1.errors.required">Example 1 is required</div>
+                        <div [hidden]="!test1.errors.minlength">Example 1 need at least 2 characters</div>
+                        <div [hidden]="!test1.errors.maxlength">Example 1 need maximum 15 characters</div>
+                </div>
 
-                <ng-template #errorMessage2>
-                        <div class="alert alert-danger">
-                                <span [hidden]="!test2.errors.required">Multiline value is required</span>
-                                <span [hidden]="!test2.errors.minlength">Multiline value need at least 5 characters</span>
-                                <span [hidden]="!test2.errors.maxlength">Multiline value need maximum of 20 characters</span>
-                        </div>
-                </ng-template>
+                <div *ngIf="test2.errors && (test2.dirty || test2.touched)" class="alert alert-danger">
+                        <div [hidden]="!test2.errors.required">Example 1 is required</div>
+                        <div [hidden]="!test2.errors.minlength">Example 1 need at least 2 characters</div>
+                        <div [hidden]="!test2.errors.maxlength">Example 1 need maximum 15 characters</div>
+                </div>
         </div>
 </div>

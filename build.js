@@ -60,14 +60,20 @@ return Promise.resolve()
         // the window object.
         // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals for more.
         '@angular/core': 'ng.core',
-        '@angular/forms': 'ng.forms'
+        '@angular/common': 'ng.common',
+        '@angular/forms': 'ng.forms',
+        'ngx-bootstrap' : 'ngx-bootstrap',
+        'moment': 'moment'
       },
       external: [
         // List of dependencies
         // See https://github.com/rollup/rollup/wiki/JavaScript-API#external for more.
         '@angular/core',
+        '@angular/common',
         '@angular/forms',
-        'rxjs/Rx'
+        'rxjs/Rx',
+        'ngx-bootstrap',
+        'moment'
       ],
       plugins: [
         sourcemaps()

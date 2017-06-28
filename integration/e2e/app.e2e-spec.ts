@@ -1,7 +1,7 @@
 import { browser, element, by } from 'protractor';
 import { AppComponent } from '../src/app/app.component';
 
-describe('QuickStart Lib E2E Tests', function () {
+describe('Ngx-ContentEditable E2E tests', function () {
 
   beforeEach(function() {
    this.app = new AppComponent();
@@ -14,6 +14,6 @@ describe('QuickStart Lib E2E Tests', function () {
   });
 
   it('should display contenteditable', () => {
-    expect(element(by.css('contentEditable'))).toBeTruthy();
+    expect(element(by.css('.contentEditable'))).toBeTruthy();
   });
 });

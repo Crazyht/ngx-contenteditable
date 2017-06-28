@@ -79,7 +79,6 @@ module.exports = function (config) {
     },
 
     exclude: [],
-    preprocessors: {},
     reporters: ['progress', 'kjhtml'],
 
     port: 9876,
