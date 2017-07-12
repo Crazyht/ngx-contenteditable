@@ -1,6 +1,6 @@
 {
   "name": "ngx-contenteditable",
-  "version": "1.0.0",
+  "version": "0.9.1",
   "description": "Library QuickStart package.json from the documentation, supplemented with testing support",
   "main": "./bundles/ngx-contenteditable.umd.js",
   "module": "./ngx-contenteditable.es5.js",

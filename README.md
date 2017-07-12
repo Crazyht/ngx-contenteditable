@@ -1,5 +1,5 @@
 # ngx-contenteditable
-[![Build Status](https://travis-ci.org/Crazyht/ngx-contenteditable.svg?branch=dev)](https://travis-ci.org/Crazyht/ngx-contenteditable)
+[![Build Status](https://travis-ci.org/Crazyht/ngx-contenteditable.svg?branch=master)](https://travis-ci.org/Crazyht/ngx-contenteditable)
 
 ## Features:
 - a simple example library
