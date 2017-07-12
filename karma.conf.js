@@ -122,7 +122,6 @@ module.exports = function (config) {
 
     exclude: [],
     preprocessors: {
-      reporters: ['progress', 'kjhtml'],
       './src/lib/**/!(*spec).js': 'coverage'
     },
 
