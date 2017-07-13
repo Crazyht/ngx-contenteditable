@@ -15,14 +15,19 @@ const rollupConfig = {
   entry: `${srcDir}/main-aot.js`,
   sourceMap: false,
   format: 'iife',
-  onwarn: function (warning) {
+  onwarn: (warning) => {
     // Skip certain warnings
-    if (warning.code === 'THIS_IS_UNDEFINED') { return; }
+    if (warning.code === 'THIS_IS_UNDEFINED') {
+      return;
+    }
     // console.warn everything else
     console.warn(warning.message);
   },
   plugins: [
-    nodeResolve({ jsnext: true, module: true }),
+    nodeResolve({
+      jsnext: true,
+      module: true
+    }),
     commonjs({
       include: ['node_modules/rxjs/**']
     }),
@@ -30,9 +35,37 @@ const rollupConfig = {
   ]
 };
 
+// Recursively create a dir.
+function _recursiveMkDir(dir) {
+  if (!fs.existsSync(dir)) {
+    _recursiveMkDir(path.dirname(dir));
+    fs.mkdirSync(dir);
+  }
+}
+
+// Copy files maintaining relative paths.
+function _relativeCopy(fileGlob, from, to) {
+  return glob(fileGlob, {
+    cwd: from,
+    nodir: true
+  }, (err, files) => {
+    if (err) {
+      throw err;
+    }
+    files.forEach((file) => {
+      const origin = path.join(from, file);
+      const dest = path.join(to, file);
+      _recursiveMkDir(path.dirname(dest));
+      fs.createReadStream(origin).pipe(fs.createWriteStream(dest));
+    });
+  });
+}
+
 return Promise.resolve()
   // Compile using ngc.
-  .then(() => ngc({ project: `./tsconfig.aot.json` }))
+  .then(() => ngc({
+    project: `./tsconfig.aot.json`
+  }))
   // Create dist dir.
   .then(() => _recursiveMkDir(distDir))
   // Copy files.
@@ -47,12 +80,12 @@ return Promise.resolve()
       'styles.css'
     ];
 
-    return Promise.all(assets.map(asset => _relativeCopy(asset, srcDir, distDir)));
+    return Promise.all(assets.map((asset) => _relativeCopy(asset, srcDir, distDir)));
   })
   // Bundle app.
   .then(() => rollup.rollup(rollupConfig))
   // Concatenate app and scripts.
-  .then(bundle => {
+  .then((bundle) => {
     const appBundle = bundle.generate(rollupConfig);
 
     const scripts = [
@@ -68,26 +101,3 @@ return Promise.resolve()
 
     fs.writeFileSync(path.join(distDir, 'bundle.js'), concatenatedScripts);
   });
-
-
-
-// Copy files maintaining relative paths.
-function _relativeCopy(fileGlob, from, to) {
-  return glob(fileGlob, { cwd: from, nodir: true }, (err, files) => {
-    if (err) throw err;
-    files.forEach(file => {
-      const origin = path.join(from, file);
-      const dest = path.join(to, file);
-      _recursiveMkDir(path.dirname(dest));
-      fs.createReadStream(origin).pipe(fs.createWriteStream(dest));
-    })
-  })
-}
-
-// Recursively create a dir.
-function _recursiveMkDir(dir) {
-  if (!fs.existsSync(dir)) {
-    _recursiveMkDir(path.dirname(dir));
-    fs.mkdirSync(dir);
-  }
-}

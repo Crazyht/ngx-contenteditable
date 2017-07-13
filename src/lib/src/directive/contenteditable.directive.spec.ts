@@ -3,7 +3,8 @@ import { ContentEditableDirective } from './contenteditable.directive';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Directive, DebugElement, Component, ViewChild } from '@angular/core';
-import { CommonModule } from "@angular/common";
+import { CommonModule } from '@angular/common';
+
 describe('ContentEditableDirective', function () {
   let de: DebugElement;
   let directive: ContentEditableDirective;
@@ -20,7 +21,7 @@ describe('ContentEditableDirective', function () {
     declarations: [
       ContentEditableDirective, BasicDemo
     ],
-    })
+    });
     TestBed.compileComponents();
   }));
 
@@ -37,7 +38,7 @@ describe('ContentEditableDirective', function () {
 @Component({
   selector: 'app',
   template: `
-    <p contenteditable 
+    <p contenteditable
         class="contentEditable"
         [(ngModel)]="text2"
         name="example2"
@@ -49,6 +50,6 @@ describe('ContentEditableDirective', function () {
     </p>`
 })
 class BasicDemo {
-  text2: string = 'test';
+  text2 = 'test';
   @ViewChild(ContentEditableDirective) directive: ContentEditableDirective;
 }
