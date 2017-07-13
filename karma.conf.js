@@ -44,10 +44,12 @@ module.exports = function (config) {
       'node_modules/zone.js/dist/async-test.js',
       'node_modules/zone.js/dist/fake-async-test.js',
 
-      //Integration Test
-
-
       // RxJs
+      {
+        pattern: 'src/datas/*.js',
+        included: false,
+        watched: false
+      },
       {
         pattern: 'node_modules/rxjs/**/*.js',
         included: false,
@@ -124,7 +126,6 @@ module.exports = function (config) {
     preprocessors: {
       './src/lib/**/!(*spec).js': 'coverage'
     },
-
     reporters: ['progress', 'kjhtml', 'coverage', 'remap-coverage'],
 
     coverageReporter: {
@@ -146,5 +147,5 @@ module.exports = function (config) {
     browserDisconnectTolerance: 1,
     browserNoActivityTimeout: 60000, //by default 10000
     singleRun: false
-  })
-}
+  });
+};
