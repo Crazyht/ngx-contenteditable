@@ -1,4 +1,6 @@
 # ngx-contenteditable
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Crazyht/ngx-contenteditable.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/Crazyht/ngx-contenteditable.svg?branch=master)](https://travis-ci.org/Crazyht/ngx-contenteditable)
 
 ## Features:
