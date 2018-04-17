@@ -80,7 +80,7 @@
     "zone.js": "^0.8.12"
   },
   "dependencies": {
-    "ngx-bootstrap": "^1.7.1",
+    "ngx-bootstrap": "^2.0.4",
     "moment": "^2.18.1"
   }
 }
