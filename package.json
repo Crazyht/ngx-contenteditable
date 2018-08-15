@@ -58,7 +58,7 @@
     "execa": "^0.7.0",
     "font-awesome": "~4.7.0",
     "glob": "^7.1.1",
-    "jasmine-core": "^2.5.2",
+    "jasmine-core": "^3.2.1",
     "karma": "^1.5.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-cli": "^1.0.1",
